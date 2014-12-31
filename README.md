@@ -16,10 +16,10 @@ Basic usage
 
 API
 ---
-- rld.start() - starts the debugger
-- rld.stop() - stops the debugger
-- rld.troff()/rld.tron() - toggles tracing off/on
-- rld.options - debugger options, see source for details
+- `rld.start()` - starts the debugger
+- `rld.stop()` - stops the debugger
+- `rld.troff()` / `rld.tron()` - toggles tracing off/on
+- `rld.options` - debugger options, see source for details
 
 TODO
 ----
