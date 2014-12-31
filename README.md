@@ -33,6 +33,12 @@ Known Issues
 - Function names are shown without global context (e.g. `redis.call` becomes `call`)
 - rld functions are also traced (e.g. calling rld.stop/troff/tron from @user_script)
 
+Contributing
+------------
+ 1. Fork it.
+ 2. Change it.
+ 3. Make a pull request.
+ 
 License
 -------
 See the `LICENSE` file.
