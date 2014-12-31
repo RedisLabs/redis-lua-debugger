@@ -10,7 +10,7 @@ rld is a non-interactive debugger for Lua scripts running in Redis. rld's featur
 Basic usage
 -----------
  1. Load rld.lua to Redis once (e.g. `redis-cli --eval rld.lua`).
- 2. Add this line at the beginning of your Lua script: `rdl.start()`.
+ 2. Add this line at the beginning of your Lua script: `rld.start()`.
  3. Run your code as usual (e.g. `redis-cli --eval prog.lua`).
  4. View rld's output in Redis' log file or by subscribing to the `rld` channel.
 
