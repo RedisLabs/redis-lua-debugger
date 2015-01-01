@@ -1,6 +1,8 @@
 redis-lua-debugger
 ==================
-rld is a non-interactive debugger for Lua scripts running in Redis. rld's features include:
+rld is a non-interactive debugger for Lua scripts running in Redis. See [this post](https://redislabs.com/blog/pop-the-red-boxs-lid-redis-lua-debugger) for a runtime example.
+
+rld's features include:
 - Easy & native installation, only ~6KB payload.
 - Prints output to local and remote consoles.
 - Traces the execution of code lines.
