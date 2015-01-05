@@ -34,6 +34,7 @@ Known Issues
 - Last line of user script doesn't trigger auto-watch change printouts
 - Function names are shown without global context (e.g. `redis.call` becomes `call`)
 - rld functions are also traced (e.g. calling rld.stop/troff/tron from @user_script)
+- Replication breaker: while the rld script is replicated, it is never run on the slave explicitly and therefore doesn't register in _G. This causes user scripts to break in the slave when trying to invoke rld.
 
 Contributing
 ------------
@@ -47,4 +48,4 @@ See the `LICENSE` file.
 
 DISCLAIMER
 ----------
-This script is highly experimental - use at your own risk!
+This script is highly experimental - use at your own risk! (and never in production ;))
