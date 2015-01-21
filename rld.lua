@@ -2,8 +2,9 @@
 -- By: Itamar Haber, Redis Labs
 
 local rld = {}
-rld.version = "0.1.0"
+rld.version = "0.1.1"
 rld.stack = {}
+rld.publog = {}
 rld.fcounts = {}
 rld.skip = 0
 
@@ -56,7 +57,7 @@ function rld.log(msg)
     redis.log(rld.options.loglv, "[rld] " .. string.rep("    ", #rld.stack - 1) .. msg)
   end
   if rld.options.medium == "pub" or rld.options.medium == "*" then
-    redis.call("PUBLISH", "rld", msg)
+    rld.publog[#rld.publog+1] = msg
   end
 end
 
@@ -126,7 +127,7 @@ function rld.hook(event, line)
     if d.what == "Lua" then
       fn = d.what .. ":" .. d.source
     else
-      fn = "!!!unknown!!!"
+      fn = d.what .. ":" .. "{unknown}"
     end
   else
     fn = d.what .. ":" .. fn
@@ -189,10 +190,17 @@ end
 
 -- can be called from debugged script to stop the debugger
 function rld.stop(msg)
-    rld.printsummary()
-    if msg == nil then msg = "user stopped." end
-    rld.log("-- rld exited: "  .. msg)
-    debug.sethook()
+  debug.sethook()
+
+  rld.printsummary()
+  if msg == nil then msg = "user stopped." end
+  rld.log("-- rld exited: "  .. msg)
+
+  if rld.options.medium == "pub" or rld.options.medium == "*" then
+    for _, v in pairs(rld.publog) do
+      redis.call("PUBLISH", "rld", v)
+    end
+  end    
 end
 
 -- starts the debugger

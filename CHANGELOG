@@ -1,0 +1,9 @@
+version 0.1.1
+=============
+
+* Logging via PUBLISH behavior changed from on-event to buffered (#3)
+
+version 0.1.0
+=============
+
+Initial release.

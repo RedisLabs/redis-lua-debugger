@@ -6,7 +6,7 @@ rld's features include:
 - Easy & native installation, only ~6KB payload.
 - Prints output to local and remote consoles.
 - Traces the execution of code lines.
-- State-of-the-art automatic watch mechanism reports new variables and value changes
+- State-of-the-art automatic watch mechanism reports new variables and value changes.
 - Reports function calls, returns and arguments and does on-the-fly profiling.
 
 Basic usage
