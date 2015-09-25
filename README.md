@@ -31,6 +31,7 @@ TODO
 
 Known Issues
 ------------
+- This script is not compatible with Redis v3 and above (https://github.com/antirez/redis/commit/30278061cc834b4073b004cb1a2bfb0f195734f7)
 - Last line of user script doesn't trigger auto-watch change printouts
 - Function names are shown without global context (e.g. `redis.call` becomes `call`)
 - rld functions are also traced (e.g. calling rld.stop/troff/tron from @user_script)
